@@ -198,9 +198,3 @@ This project demonstrates how to:
 - Use Kubernetes (AKS) to run scalable CI/CD pipelines.
 - Configure Tekton for cloud-native automation.
 - Build reusable and modular CI/CD workflows.
-
-**Why does this matter?**  
-By completing this project, you’ve showcased your ability to:
-- Work with Kubernetes and Tekton.
-- Automate the software development lifecycle.
-- Deploy modern infrastructure solutions.
