@@ -1,10 +1,14 @@
-# **CI/CD Pipeline with Tekton on Azure Kubernetes Service (AKS)**
+#  Deploying a CI/CD Pipeline with Tekton on Azure Kubernetes Service (AKS)
 
 ## **Overview**
 
 In this project, we will set up a **CI/CD pipeline** using **Tekton Pipelines** on an **Azure Kubernetes Service (AKS)** cluster. The pipeline automates the process of cloning a repository, building a Node.js application, and preparing it for deployment.
 
----
+## **Skills You’ll Learn:**
+- Setting up and managing Azure Kubernetes Service.
+- Installing and configuring Tekton Pipelines.
+- Writing Tekton Task and Pipeline YAML files.
+- Building and deploying containerized applications with Tekton.
 
 ## **Prerequisites**
 
@@ -35,15 +39,18 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service provided by Micro
    A **resource group** is a container in Azure that holds resources like your AKS cluster.  
    - Navigate to **Resource Groups** → **Create**.
    - Name it `tekton-rg` and select a region (e.g., `East US`).  
-   - **Why?** Resource groups help organize and manage resources efficiently.  
-   **Take a screenshot of the resource group summary.**
+   - **Why?** Resource groups help organize and manage resources efficiently.
+
+![Screenshot 2025-02-28 014942](https://github.com/user-attachments/assets/650c4012-946d-4781-87dd-996bd5a32e52)
 
 3. **Create an AKS Cluster**  
    - Navigate to **Azure Kubernetes Service** → **Create**.
    - Name the cluster `tekton-aks`.
    - Set up **2 nodes** using `Standard_DS2_v2` (adjust as needed).  
-   - **Why?** AKS provides a Kubernetes environment for deploying our pipeline.  
-   **Take a screenshot of the cluster summary.**
+   - **Why?** AKS provides a Kubernetes environment for deploying our pipeline.
+
+![Screenshot 2025-02-28 015713](https://github.com/user-attachments/assets/6d7d1762-27c4-406d-a19b-db3dd654b29d)
+
 
 4. **Connect to the AKS Cluster**  
    Use Azure CLI to connect to your AKS cluster:
@@ -52,8 +59,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service provided by Micro
    az aks get-credentials --resource-group tekton-rg --name tekton-aks
    kubectl get nodes
    ```
-   - The `get-credentials` command configures `kubectl` to interact with your AKS cluster.  
-   **Take a screenshot of the `kubectl get nodes` output.**
+   - The `get-credentials` command configures `kubectl` to interact with your AKS cluster.
+  
+![Screenshot 2025-02-28 015805](https://github.com/user-attachments/assets/9f70b192-dfe8-444a-b0aa-fe610e2287ac)
 
 ---
 
@@ -75,8 +83,9 @@ Tekton Pipelines allow us to define CI/CD workflows as Kubernetes-native resourc
    ```bash
    kubectl get pods -n tekton-pipelines
    ```
-   - **Why?** This ensures that Tekton is running correctly on your AKS cluster.  
-   **Take a screenshot of the running Tekton pods.**
+   - **Why?** This ensures that Tekton is running correctly on your AKS cluster.
+
+![Screenshot 2025-02-28 015841](https://github.com/user-attachments/assets/735f1857-8a61-4c02-bfa0-8d513de9858b)
 
 ---
 
@@ -178,25 +187,8 @@ kubectl apply -f pipeline.yaml
    tkn pipelinerun logs -f
    ```
    - **Why?** This ensures that the pipeline is functioning as expected.
-
----
-
-## **Step 5: Push the Project to GitHub**
-
-1. **Initialize a Git Repository**  
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Tekton on AKS CI/CD project"
-   ```
-
-2. **Push to GitHub**  
-   Create a repository on GitHub, then push your project:
-   ```bash
-   git remote add origin <your-repo-url>
-   git branch -M main
-   git push -u origin main
-   ```
+   - 
+![Screenshot 2025-02-28 024002](https://github.com/user-attachments/assets/a4f99762-951e-446e-97c8-dd01b4f10f04)
 
 ---
 
