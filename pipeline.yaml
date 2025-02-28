@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-and-deploy-pipeline
+spec:
+  workspaces:
+    - name: pipeline-workspace
+  tasks:
+    - name: clone-repo
+      taskRef:
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: pipeline-workspace
+      params:
+        - name: url
+          value: https://github.com/heroku/node-js-sample.git
+        - name: revision
+          value: master
+    - name: build-task
+      taskRef:
+        name: build-task
+      workspaces:
+        - name: shared-workspace
+          workspace: pipeline-workspace
