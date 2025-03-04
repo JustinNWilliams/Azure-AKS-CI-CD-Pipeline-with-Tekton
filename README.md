@@ -1,4 +1,5 @@
 #  Deploying a CI/CD Pipeline with Tekton on Azure Kubernetes Service (AKS)
+![image](https://github.com/user-attachments/assets/e36506d2-d68d-45aa-8f04-20aeea29dd76)
 
 ## **Overview**
 
